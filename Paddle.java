@@ -16,17 +16,28 @@ public class Paddle {
         this.speed = s;
         this.color = color;
     }
-    public void paint(Graphics g){
-        g.setColor(color.white);
-        g.fillRect(x, y, width, height);
+    
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
     }
-    public int getX(){
-        return x;
+    public void paint(Graphics g){
+        g.setColor(color);
+        g.fillRect(x, y, width, height);
     }
     public int getY(){
         return y;
     }
-    public void setLocation(int x2, int i) {
+    public void moveUp() {
+        y -= speed;
+        if (y < 0) {
+            y = 0;
+        }
     }
-        
+    
+    public void moveDown() {
+        y += speed;
+        if (y + height > PongPanel.Height) {
+            y = PongPanel.Height - height;
+        }
+    } 
 }
