@@ -45,19 +45,19 @@ public class PongPanel extends JPanel implements KeyListener, Runnable {
 
     @Override
     public void run() {
-        long desiredFrameTime = 1000 / FPS; // Desired time per frame in milliseconds
+        long desiredFrameTime = 1000 / FPS; 
         while (running) {
             long startTime = System.currentTimeMillis();
 
-            // Game logic update
+            
             updateGame();
 
-            // Render the game state
+           
             repaint();
 
             long elapsedTime = System.currentTimeMillis() - startTime;
 
-            // Delay to achieve the desired frame rate
+           
             long sleepTime = desiredFrameTime - elapsedTime;
             if (sleepTime > 0) {
                 try {
@@ -113,7 +113,7 @@ public class PongPanel extends JPanel implements KeyListener, Runnable {
         repaint();
     }
     private void updateGame() {
-        // Update the paddles' positions
+        
         if (paddleMovingUp) {
             paddle.moveUp();
         } else if (paddleMovingDown) {
